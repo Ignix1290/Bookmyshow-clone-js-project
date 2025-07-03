@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/Bookmyshow-Icons.png" type="image/png">
+    <title>BookMyShow</title>
+</head>
+<body>
+    <header>
+        <div id="left-header">
+            <img src="./images/bookmyshow-logo.svg" alt="bookmyshow-logo">
+
+            <div class="input-container">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities">
+            </div>
+        </div>
+
+        <div id="right-header">
+            <div id="location-container">
+                <div id="location"></div>
+                <i class='bx bx-down-arrow'></i>
+            </div>
+            
+            <button id="sign-in">Sign in</button>
+            <i class='bx bx-menu menu-icon'></i>
+        </div>
+    </header>
+
+    <main>
+        <div id="movie-search-modal-container">
+            <div id="movie-search-modal">
+            <!-- <p>superman</p>
+            <p>superman</p> -->
+            </div>
+        </div>
+
+    <div id="city-modal-container" class="city-modal-container">
+        <div class="city-modal">
+            <div class="city-input-container">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Search for your city">
+            </div>
+
+            <div class="city-selection">
+                <!-- <p class="city-options">fjajfaf</p>
+                <p class="city-options">fbdaubfa</p>
+                <p class="city-options">ajfafja</p> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-movie-details">
+        <h1 class="booking-movie-title">Movie Name</h1>
+        <span class="booking-movie-rated">rated</span> <span class="booking-movie-genre">genre</span>
+    </div>
+
+    <div id="booking-day">
+        
+    </div>
+
+    <div id="booking-theater">
+        <div class="booking-theater-details">
+            <div class="theater-name">
+                <p>City36 Cinemas</p>
+                <span>📱 M-Ticket</span> <span>🍔 Food & Beverage</span>
+            </div>
+            <div class="theater-timings">
+                <div class="showtime">10.00 AM</div>
+                <div class="showtime">01.10 PM</div>
+                <div class="showtime">03.50 PM</div>
+                <div class="showtime">04.30 PM</div>
+                <div class="showtime">07.10 PM</div>
+                <div class="showtime">09.30 PM</div>
+                <div class="showtime">11.10 PM</div>
+            </div>
+        </div>
+        <div class="booking-theater-details">
+            <div class="theater-name">
+                <p>PVR: Rama Magneto Mall</p>
+                <span>📱 M-Ticket</span> <span>🍔 Food & Beverage</span>
+            </div>
+            <div class="theater-timings">
+                <div class="showtime">10.00 AM</div>
+                <div class="showtime">01.10 PM</div>
+                <div class="showtime">03.50 PM</div>
+                <div class="showtime">04.30 PM</div>
+                <div class="showtime">07.10 PM</div>
+                <div class="showtime">09.30 PM</div>
+                <div class="showtime">11.10 PM</div>
+            </div>
+        </div>
+        <div class="booking-theater-details">
+            <div class="theater-name">
+                <p>Connplex Cinemas</p>
+                <span>📱 M-Ticket</span> <span>🍔 Food & Beverage</span>
+            </div>
+            <div class="theater-timings">
+                <div class="showtime">10.00 AM</div>
+                <div class="showtime">01.10 PM</div>
+                <div class="showtime">03.50 PM</div>
+                <div class="showtime">04.30 PM</div>
+                <div class="showtime">07.10 PM</div>
+                <div class="showtime">09.30 PM</div>
+                <div class="showtime">11.10 PM</div>
+            </div>
+        </div>
+    </div>
+    </main>
+    
+    <footer class="site-footer">
+        <p>&copy; 2025 BookMyShow Clone. All rights reserved.</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

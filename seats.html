@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/Bookmyshow-Icons.png" type="image/png">
+    <title>BookMyShow</title>
+</head>
+<body>
+    <div id="seats-header">
+        <div class="seats-header-left">
+            <p class="seats-movie-title">Movie Name</p>
+            <div class="seat-details">
+                <span class="seats-theater">City36 Cinemas:</span>, 
+                <span class="seats-city">Bilaspur |</span>,
+                <span class="seats-day">seat day,</span>,
+                <span class="seats-month">seat month,</span>
+                <span class="seats-date">seat date,</span>,
+                <span class="seats-time">seat time</span>
+            </div>
+        </div>
+
+        <div class="seats-header-right">
+            <i class='bx  bx-x'></i> 
+        </div>
+    </div>
+
+    <div id="seat-timing"> 
+        <div class="seat-showtime">10.00 AM</div>
+        <div class="seat-showtime">01.10 PM</div>
+        <div class="seat-showtime">03.50 PM</div>
+        <div class="seat-showtime">04.30 PM</div>
+        <div class="seat-showtime">07.10 PM</div>
+        <div class="seat-showtime">09.30 PM</div>
+        <div class="seat-showtime">11.10 PM</div>
+    </div>
+
+    <div id="seat-layout">
+        <div class="seat-recliner" data-price="400">
+            <div class="seat-type">Rs. 400 RECLINER</div>
+            <div class="seat-row" data-row="I"></div>
+            <div class="seat-row" data-row="H"></div>
+            <div class="seat-row" data-row="G"></div>
+        </div>
+        <div class="seat-prime" data-price="260">
+            <div class="seat-type">Rs. 260 PRIME</div>
+            <div class="seat-row" data-row="F"></div>
+            <div class="seat-row" data-row="E"></div>
+            <div class="seat-row" data-row="D"></div>
+        </div>
+        <div class="seat-classic" data-price="160">
+            <div class="seat-type">Rs. 160 CLASSIC</div>
+            <div class="seat-row" data-row="C"></div>
+            <div class="seat-row" data-row="B"></div>
+            <div class="seat-row" data-row="A"></div>
+        </div>
+    </div>
+
+    <div class="screen-shape">All eyes this way</div>
+
+    <div id="seat-legend">
+        <div class="legend-item">
+            <div class="seat-selected"></div>
+            <span>Selected</span>
+        </div>
+        <div class="legend-item">
+            <div class="seat-available"></div>
+            <span>Available</span>
+        </div>
+        <div class="legend-item">
+            <div class="seat-sold"></div>
+            <span>Sold</span>
+        </div>
+    </div>
+
+
+    <div id="seat-payment-container">
+        <button id="seat-payment">Pay Rs.</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

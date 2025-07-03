@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/Bookmyshow-Icons.png" type="image/png">
+    <title>BookMyShow</title>
+</head>
+<body>
+    <header>
+        <div id="left-header">
+            <img src="./images/bookmyshow-logo.svg" alt="bookmyshow-logo">
+
+            <div class="input-container">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities">
+            </div>
+        </div>
+
+        <div id="right-header">
+            <div id="location-container">
+                <div id="location"></div>
+                <i class='bx bx-down-arrow'></i>
+            </div>
+            
+            <button id="sign-in">Sign in</button>
+            <i class='bx bx-menu menu-icon'></i>
+        </div>
+    </header>
+
+    <div id="movie-search-modal-container">
+        <div id="movie-search-modal">
+            <!-- <p>superman</p>
+            <p>superman</p> -->
+        </div>
+    </div>
+
+    <div id="city-modal-container" class="city-modal-container">
+        <div class="city-modal">
+            <div class="city-input-container">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" placeholder="Search for your city">
+            </div>
+
+            <div class="city-selection">
+                <!-- <p class="city-options">fjajfaf</p>
+                <p class="city-options">fbdaubfa</p>
+                <p class="city-options">ajfafja</p> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="feed-container">
+        <h2>Recommended Movies</h2>
+        <div id="movie-cards">
+        
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+        <p>&copy; 2025 BookMyShow Clone. All rights reserved.</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
