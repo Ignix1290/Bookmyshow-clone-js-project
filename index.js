@@ -308,7 +308,7 @@ generateBookingDays();
 
 document.querySelectorAll(".showtime").forEach(timeEl => {
   timeEl.addEventListener("click", () => {
-    /* 1️⃣ grab fresh data right NOW, not earlier */
+    /*  grab fresh data right NOW, not earlier */
     const movieTitle = document
       .querySelector(".booking-movie-title")
       .textContent.trim();
@@ -325,7 +325,7 @@ document.querySelectorAll(".showtime").forEach(timeEl => {
       .querySelector(".theater-name p")
       .textContent.trim();
 
-    /* 2️⃣ store everything */
+    /* store everything */
     localStorage.setItem("selectedMovie",   movieTitle);
     localStorage.setItem("selectedDay",     day);
     localStorage.setItem("selectedDate",    date);
@@ -333,7 +333,6 @@ document.querySelectorAll(".showtime").forEach(timeEl => {
     localStorage.setItem("selectedTime",    selectedTime);
     localStorage.setItem("selectedTheater", theaterName);
 
-    /* 3️⃣ go to seats page */
     window.location.href = "seats.html";
   });
 });
