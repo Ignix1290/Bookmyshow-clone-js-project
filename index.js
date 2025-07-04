@@ -411,7 +411,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let paymentContainer = document.getElementById("seat-payment-container");
   let seatPaymentButton = document.getElementById("seat-payment");
   function updatePaymentVisibility(){
-    console.log("button clicked");
+    // console.log("button clicked");
     let selectedSeats = document.querySelectorAll(".seat.selected");
     let totalPrice = 0;
 
@@ -429,8 +429,24 @@ window.addEventListener("DOMContentLoaded", () => {
     }else{
         paymentContainer.style.display = "none";
     }
-    console.log(totalPrice);
+    // console.log(totalPrice);
   }
+
+  let seatNoteModal = document.getElementById("seat-modal-container");
+  seatPaymentButton.addEventListener("click", ()=>{
+    seatNoteModal.style.display = "flex";
+    document.body.style.overflow = "hidden" //disable scroll
+  });
+
+  document.querySelector(".seat-note-close").addEventListener("click", ()=>{
+    seatNoteModal.style.display = "none";
+    document.body.style.overflow = "auto"; //enable scroll
+  });
+
+  document.getElementById("seat-note-cancel").addEventListener("click", ()=>{
+    seatNoteModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
 
 });
 
