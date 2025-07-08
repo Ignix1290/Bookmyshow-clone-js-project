@@ -357,7 +357,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const closeIcon = document.querySelector(".seats-header-right i");
   closeIcon.addEventListener("click", () => {
-    console.log("Header icon clicked");
+    console.log("Seats Close Clicked");
     window.history.back();
   });
 
@@ -448,5 +448,20 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "auto";
   });
 
+  document.getElementById("seat-note-ok").addEventListener("click", ()=>{
+    window.location.href = "booking-summary.html";
+  });
+
 });
 
+
+//booking summary logic 
+window.addEventListener("DOMContentLoaded", ()=>{
+  console.log("DOM fully loaded on booking-summary.html");
+
+  const closeIcon = document.querySelector(".seats-header-right i");
+  closeIcon.addEventListener("click", () => {
+    console.log("Booking Summary Close Clicked");
+    window.history.back();
+  });
+});
