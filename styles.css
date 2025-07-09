@@ -706,6 +706,13 @@ header{
     padding-top: 30px;
 }
 
+#booking-summary-container h2{
+    font-weight: lighter;
+    color: #d53434;
+    width: 100%;
+    padding-left: 14%;
+}
+
 #booking-summary-prices{
     display: flex;
     flex-direction: row;
@@ -714,4 +721,90 @@ header{
     justify-content: space-between;
     gap: 20%;
     margin-top: 30px;
+}
+
+.booking-summary-subtotal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px 6%;
+    background-color: #ffffcc;
+}
+
+#booking-summary-ticket-container{
+    margin: auto;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#booking-summary-ticket-container h2{
+    font-weight: lighter;
+    color: #898989;
+    font-size: 17px;
+}
+
+#booking-summary-ticket-type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.ticket-type{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #bebebe;
+    width: 49%;
+    height: 70px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+#booking-summary-ticket-container p{
+    font-size: 12px;
+}
+
+#booking-summary-button-container{
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#booking-summary-button-container p{
+    font-size: 13px;
+}
+
+#booking-summary-button{
+    width: 100%;
+    padding: 5px 20px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #d53434;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#booking-summary-button span{
+    font-size: 20px;
 }

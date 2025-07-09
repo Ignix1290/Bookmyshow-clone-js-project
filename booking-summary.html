@@ -31,11 +31,35 @@
     <div id="booking-summary-container">
         <h2>Booking Summary</h2>
         <div id="booking-summary-prices">
-            <p>Recliner</p>
+            <p>Recliner (1 Ticket)</p>
             <p>Rs. 400.00</p>
             <p>Convenience fees</p>
             <p>Rs. 35.00</p>
         </div>
+        <div class="booking-summary-subtotal">
+            <p>Subtotal</p>
+            <p>Rs. 435.00</p>
+        </div>
+    </div>
+
+    <div id="booking-summary-ticket-container">
+        <h2>SELECT TICKET TYPE</h2>
+        <div id="booking-summary-ticket-type">
+            <div id="m-ticket" class="ticket-type">
+                <input type="radio" name="payment" value="credit"> 
+                <div>📱   M-Ticket</div>
+            </div>
+            <div id="box-office-pickup" class="ticket-type">
+                <input type="radio" name="payment" value="credit"> 
+                <div>🎟️   Box Office Pickup</div>
+            </div>
+        </div>
+        <p>Show the m-ticket QR Code on your mobile to enter the cinema.</p>
+    </div>
+
+    <div id="booking-summary-button-container">
+        <p>‼️ By proceeding, I express my consent to complete this transaction.</p>
+        <button id="booking-summary-button"><span>TOTAL: Rs. 435.00</span><span>Proceed</span></button>
     </div>
 
     <script src="index.js"></script>
