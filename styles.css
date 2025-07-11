@@ -713,15 +713,25 @@ header{
     padding-left: 14%;
 }
 
-#booking-summary-prices{
+/* #booking-summary-prices{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 20%;
+    gap: 25%;
     margin-top: 30px;
+    width: 88%;
+} */
+
+#booking-summary-prices {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 10px;
+  width: 88%;
+  margin-top: 30px;
 }
+
 
 .booking-summary-subtotal{
     display: flex;
@@ -777,7 +787,12 @@ header{
 }
 
 #booking-summary-ticket-container p{
-    font-size: 12px;
+max-width: 400px; /* Or whatever width you want */
+  margin: 0 auto;    /* To center it */
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
 }
 
 #booking-summary-button-container{

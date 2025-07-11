@@ -449,9 +449,30 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("seat-note-ok").addEventListener("click", ()=>{
-    window.location.href = "booking-summary.html";
-  });
+      //getting all the data to store in localstorage, so that I can get those data in booking summary page
+  let selectedSeats = document.querySelectorAll(".seat.selected");
+  let selectedSeatNames = Array.from(selectedSeats).map(seat => seat.textContent.trim());
+  let ticketCount = selectedSeats.length;
+  let priceBlock = selectedSeats[0].closest("[data-price]");
+  let seatPrice = parseInt(priceBlock.dataset.price);
+  let seatType = priceBlock.classList.contains("seat-recliner")
+                 ? "RECLINER"
+                 : priceBlock.classList.contains("seat-prime")
+                 ? "PRIME"
+                 : "CLASSIC";
+  let seatSubtotal = seatPrice * ticketCount;
+  let seatTotal = seatSubtotal + 35.00;
 
+  console.log("Saving to localStorage...");
+  localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
+  localStorage.setItem("selectedSeatNames", JSON.stringify(selectedSeatNames));
+  localStorage.setItem("ticketCount", ticketCount);
+  localStorage.setItem("seatPrice", seatPrice);
+  localStorage.setItem("seatType", seatType);
+  localStorage.setItem("seatSubtotal", seatSubtotal);
+  localStorage.setItem("seatTotal", seatTotal);
+  window.location.href = "booking-summary.html";
+  });
 });
 
 
@@ -464,4 +485,35 @@ window.addEventListener("DOMContentLoaded", ()=>{
     console.log("Booking Summary Close Clicked");
     window.history.back();
   });
+
+  let seatType = document.querySelector(".booking-summary-seatType");
+  let seatStoredType = localStorage.getItem("seatType");
+  let seatSubtotal = document.querySelector(".booking-summary-seatSubtotal");
+  let total = document.querySelector(".booking-summary-total");
+  let ticketCount = parseInt(localStorage.getItem("ticketCount"));
+  let selectedSeatNames = JSON.parse(localStorage.getItem("selectedSeatNames"));
+
+  seatType.textContent = `${seatStoredType} - ${selectedSeatNames} (${ticketCount} ${ticketCount === 1? "Ticket" : "Tickets"})`;
+  seatSubtotal.textContent = "Rs." + parseFloat(localStorage.getItem("seatSubtotal")).toFixed(2);
+  total.textContent = "Rs." + parseFloat(localStorage.getItem("seatTotal")).toFixed(2);
+  //console.log(seatType, seatSubtotal, total);
+  document.querySelector("#booking-summary-button span:first-child").textContent = `TOTAL: Rs. ${total.textContent}`;
+
+  const mTicket = document.getElementById("m-ticket");
+  const boxOfficePickup = document.getElementById("box-office-pickup");
+
+  function selectTicket(block, value) {
+    block.querySelector('input[type="radio"]').checked = true;
+    localStorage.setItem("selectedTicketOption", value); 
+  }
+
+  selectTicket(mTicket, "M-Ticket");
+
+  mTicket.addEventListener("click", () => selectTicket(mTicket, "M-Ticket"));
+  boxOfficePickup.addEventListener("click", () => selectTicket(boxOfficePickup, "Box Office Pickup"));
+
+  document.getElementById("booking-summary-button").addEventListener("click", ()=>{
+    window.location.href = "payment.html";
+  })
+
 });
