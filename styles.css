@@ -823,3 +823,92 @@ max-width: 400px; /* Or whatever width you want */
 #booking-summary-button span{
     font-size: 20px;
 }
+
+
+/* payment page  */
+#payment-header{
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+#payment-header img{
+    height: 120px;
+    margin-left: 6%;
+}
+
+#contact-details-container{
+    /* background-color: orange; */
+    margin-left: 6%;
+    width: 60%;
+    margin-top: 15px;
+    border: 1px solid #dedede;
+}
+
+#contact-details-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 24px;
+    background-color: #d53434;
+    color: white;
+}
+
+#contacts{
+    background-color: white;
+    padding: 25px 24px;
+    display: flex;
+    gap: 10px;
+}
+
+#contacts input{
+    height: 40px;
+    width: 30%;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+}
+
+#contacts input:focus{
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+#contacts input::placeholder{
+    font-size: 10px;
+    color: #a5a5a5;
+}
+
+#contacts button{
+    height: 40px;
+    width: 18%;
+    border-radius: 10px;
+    border: none;
+    background-color: #d53434;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#contacts button:hover{
+    background-color: #bb1e1e;
+}
+
+#payment-options-container{
+    margin-left: 6%;
+    width: 60%;
+    margin-top: 4px;
+    border: 1px solid #dedede;
+}
+
+#payment-options-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 24px;
+    background-color: #d53434;
+    color: white;
+}

@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/Bookmyshow-Icons.png" type="image/png">
+    <title>BookMyShow</title>
 </head>
 <body>
-    <h1>payment</h1>
+    <div id="payment-header">
+        <img src="./images/bookmyshow-logo.svg" alt="bookmyshow-logo">
+    </div>
+
+    <div id="contact-details-container">
+        <div id="contact-details-header">Share your Contact Details</div>
+
+        <div id="contacts">
+            <input type="text" placeholder="Email Address">
+            <input type="number" placeholder="Mobile Number">
+            <button>Continue</button>
+        </div>
+    </div>
+
+    <div id="payment-options-container">
+        <div id="payment-options-header">Payment options</div>
+        
+        <div id="options-container">
+            <div id="payment-methods">
+                <div>Pay by any UPI App</div>
+                <div>Debit/Credit Card</div>
+            </div>
+
+            <div id="upi-options-container">
+                <div id="upi-options-header">Pay by any UPI App</div>
+
+                <div id="upi-options">
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>Google Pay</div>
+                    </div>
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>Phone Pay</div>
+                    </div>
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>BHIM</div>
+                    </div>
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>Amazon Pay</div>
+                    </div>
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>Paytm</div>
+                    </div>
+                    <div class="upi">
+                        <input type="radio" name="upi">
+                        <div>Other UPI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
