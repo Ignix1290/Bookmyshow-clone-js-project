@@ -14,69 +14,105 @@
         <img src="./images/bookmyshow-logo.svg" alt="bookmyshow-logo">
     </div>
 
-    <div id="contact-details-container">
-        <div id="contact-details-header">Share your Contact Details</div>
+    <div id="payment-page-wrapper">
+        <div id="main-left-content">
+            <div id="contact-details-container">
+                <div id="contact-details-header">Share your Contact Details</div>
 
-        <div id="contacts">
-            <input type="text" placeholder="Email Address">
-            <input type="number" placeholder="Mobile Number">
-            <button>Continue</button>
+                <div id="contacts">
+                    <input type="text" placeholder="Email Address">
+                    <input type="number" placeholder="Mobile Number">
+                    <button>Continue</button>
+                </div>
+            </div>
+
+            <div id="payment-options-container">
+                <div id="payment-options-header">Payment options</div>
+                
+                <div id="options-container">
+                    <div id="payment-methods">
+                        <button id="payByUpi">Pay by any UPI App</button>
+                        <button id="payByCard">Debit/Credit Card</button>
+                    </div>
+
+                    <div id="upi-options-container">
+                        <div id="upi-options-header"> <img src="./images/UPI-Logo.png">Pay by any UPI App</div>
+
+                        <div id="upi-options">
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/google pay logo.jpg"> <span>Google Pay</span>
+                            </div>
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/phone pay logo.png"> <span>Phone Pay</span>
+                            </div>
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/bhim logo.png"> <span>BHIM</span>
+                            </div>
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/amazon pay logo.png"> <span>Amazon Pay</span>
+                            </div>
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/paytm Logo.jpg"> <span>Paytm</span>
+                            </div>
+                            <div class="upi">
+                                <input type="radio" name="upi">
+                                <img src="./images/UPI-Logo.png"> <span>Other UPI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="upi-details-container">
+                        <div id="upi-details-header">
+                            <i class='bx  bx-chevrons-left'  ></i> Pay using &nbsp <span class="upi-selected">Google Pay</span>
+                        </div>
+
+                        <div id="upi-details">
+                            <input type="number" placeholder="Enter UPI Id"> @ <input type="text" placeholder="Enter Bank">
+                        </div>
+
+                        <button class="upi-payment-button">MAKE PAYMENT</button>
+                    </div>
+
+                    <div id="card-details-container">
+                        <div id="card-details-header">Enter your Card details</div>
+
+                        <div id="card-details">
+                            <label>Card Number</label>
+                            <input type="number" placeholder="Enter Your Card Number">
+                            <input type="text" placeholder="Name on the Card">
+                            
+                            <div class="expiry-cvv-wrap">
+                                <div class="expiry">
+                                    <label>Expiry</label>
+                                    <div class="expiry-fields">
+                                        <input type="number" placeholder="MM">
+                                        <input type="number" placeholder="YY">
+                                    </div>
+                                </div>
+
+                                <div class="cvv">
+                                    <label>CVV</label>
+                                    <input type="number" placeholder="CVV">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="upi-payment-button">MAKE PAYMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="order-summary-container">
+            <h1>order summary</h1>
         </div>
     </div>
 
-    <div id="payment-options-container">
-        <div id="payment-options-header">Payment options</div>
-        
-        <div id="options-container">
-            <div id="payment-methods">
-                <button id="payByUpi">Pay by any UPI App</button>
-                <button id="payByCard">Debit/Credit Card</button>
-            </div>
-
-            <div id="upi-options-container">
-                <div id="upi-options-header"> <img src="./images/UPI-Logo.png">Pay by any UPI App</div>
-
-                <div id="upi-options">
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/google pay logo.jpg"> <span>Google Pay</span>
-                    </div>
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/phone pay logo.png"> <span>Phone Pay</span>
-                    </div>
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/bhim logo.png"> <span>BHIM</span>
-                    </div>
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/amazon pay logo.png"> <span>Amazon Pay</span>
-                    </div>
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/paytm Logo.jpg"> <span>Paytm</span>
-                    </div>
-                    <div class="upi">
-                        <input type="radio" name="upi">
-                        <img src="./images/UPI-Logo.png"> <span>Other UPI</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="upi-details-container">
-                <div id="upi-details-header">
-                    <i class='bx  bx-chevrons-left'  ></i> Pay using &nbsp <span class="upi-selected">Google Pay</span>
-                </div>
-
-                <div id="upi-details">
-                    <input type="number" placeholder="Enter UPI Id"> @ <input type="text" placeholder="Enter Bank">
-                </div>
-
-                <button id="upi-payment-button">MAKE PAYMENT</button>
-            </div>
-        </div>
-    </div>
     <script src="index.js"></script>
 </body>
 </html>

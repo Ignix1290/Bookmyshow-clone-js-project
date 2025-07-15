@@ -557,4 +557,12 @@ window.addEventListener("DOMContentLoaded", ()=>{
     document.querySelector("#upi-details-header i").addEventListener("click", () => {
         document.getElementById("upi-details-container").style.display = "none";
     });
+
+    payByUpi.addEventListener("click", ()=>{
+        document.getElementById("card-details-container").style.display = "none";
+    });
+
+    payByCard.addEventListener("click", ()=>{
+        document.getElementById("card-details-container").style.display = "block";
+    });
 });
