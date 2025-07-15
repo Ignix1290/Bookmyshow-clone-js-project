@@ -515,5 +515,46 @@ window.addEventListener("DOMContentLoaded", ()=>{
   document.getElementById("booking-summary-button").addEventListener("click", ()=>{
     window.location.href = "payment.html";
   })
+});
 
+
+//payment page logic
+window.addEventListener("DOMContentLoaded", ()=>{
+
+    //logic for radio button block
+    document.querySelectorAll(".upi").forEach(upi =>{
+        upi.addEventListener("click", () => {
+            upi.querySelector("input[type=radio]").checked = true;
+        });
+    });
+
+    //payment method functionality
+    let payByUpi = document.getElementById("payByUpi");
+    let payByCard = document.getElementById("payByCard");
+
+    payByUpi.classList.add("active-option");
+
+    [payByUpi, payByCard].forEach((method)=>{
+        method.addEventListener("click", ()=>{
+            //remove from both
+            payByUpi.classList.remove("active-option");
+            payByCard.classList.remove("active-option");
+            //add to current one
+            method.classList.add("active-option");
+        });
+    });
+
+    document.querySelectorAll(".upi").forEach(upi => {
+        upi.addEventListener("click", ()=>{
+            document.getElementById("upi-details-container").style.display = "block";
+
+            const upiName = upi.querySelector("span").textContent;
+            document.querySelector(".upi-selected").textContent = upiName;
+        });
+    });
+
+    // Back button functionality
+    document.querySelector("#upi-details-header i").addEventListener("click", () => {
+        document.getElementById("upi-details-container").style.display = "none";
+    });
 });

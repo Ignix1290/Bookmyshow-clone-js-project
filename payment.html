@@ -29,39 +29,51 @@
         
         <div id="options-container">
             <div id="payment-methods">
-                <div>Pay by any UPI App</div>
-                <div>Debit/Credit Card</div>
+                <button id="payByUpi">Pay by any UPI App</button>
+                <button id="payByCard">Debit/Credit Card</button>
             </div>
 
             <div id="upi-options-container">
-                <div id="upi-options-header">Pay by any UPI App</div>
+                <div id="upi-options-header"> <img src="./images/UPI-Logo.png">Pay by any UPI App</div>
 
                 <div id="upi-options">
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>Google Pay</div>
+                        <img src="./images/google pay logo.jpg"> <span>Google Pay</span>
                     </div>
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>Phone Pay</div>
+                        <img src="./images/phone pay logo.png"> <span>Phone Pay</span>
                     </div>
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>BHIM</div>
+                        <img src="./images/bhim logo.png"> <span>BHIM</span>
                     </div>
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>Amazon Pay</div>
+                        <img src="./images/amazon pay logo.png"> <span>Amazon Pay</span>
                     </div>
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>Paytm</div>
+                        <img src="./images/paytm Logo.jpg"> <span>Paytm</span>
                     </div>
                     <div class="upi">
                         <input type="radio" name="upi">
-                        <div>Other UPI</div>
+                        <img src="./images/UPI-Logo.png"> <span>Other UPI</span>
                     </div>
                 </div>
+            </div>
+
+            <div id="upi-details-container">
+                <div id="upi-details-header">
+                    <i class='bx  bx-chevrons-left'  ></i> Pay using &nbsp <span class="upi-selected">Google Pay</span>
+                </div>
+
+                <div id="upi-details">
+                    <input type="number" placeholder="Enter UPI Id"> @ <input type="text" placeholder="Enter Bank">
+                </div>
+
+                <button id="upi-payment-button">MAKE PAYMENT</button>
             </div>
         </div>
     </div>
