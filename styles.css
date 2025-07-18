@@ -1165,4 +1165,99 @@ max-width: 400px; /* Or whatever width you want */
     padding: 20px;
     border: 1px solid #dedede;
     margin-top: 16px;
+    position: relative;
+}
+
+#order-summary-top {
+    text-align: left;
+    color: black;
+    font-family: sans-serif;
+    border-bottom: 1px dotted #a2a2a2;
+    padding-bottom: 20px;
+}
+
+#order-summary-title {
+    font-size: 1.8rem;
+    font-weight: 400; /* thinner */
+    margin-bottom: 8px;
+}
+
+#order-summary-movie {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+#order-summary-seatType,
+#order-summary-day,
+#order-summary-date {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+#order-summary-theater,
+#order-summary-city,
+#order-summary-ticketType{
+    font-size: 0.9rem;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+#order-summary-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 8px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: black;
+    padding: 10px 0;
+}
+
+#order-summary-bottom p:nth-child(odd) {
+    justify-self: start;
+}
+
+#order-summary-bottom p:nth-child(even) {
+    justify-self: end;
+}
+
+#order-summary-total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 0;
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+
+#order-summary-total span:first-child {
+    justify-self: start;
+}
+
+#order-summary-total span:last-child {
+    justify-self: end;
+}
+
+#order-summary-tickets {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    text-align: center;
+    line-height: 1;
+}
+
+#order-summary-ticketCount {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0;
+    color: black;
+}
+
+#order-summary-tickets p:last-child {
+    font-size: 12px;
+    margin: 0;
+    color: gray;
 }

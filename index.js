@@ -565,4 +565,29 @@ window.addEventListener("DOMContentLoaded", ()=>{
     payByCard.addEventListener("click", ()=>{
         document.getElementById("card-details-container").style.display = "block";
     });
+
+    //getting all the required data from localstorage
+    document.getElementById("order-summary-movie").textContent = localStorage.getItem("selectedMovie");
+
+    document.getElementById("order-summary-theater").textContent = localStorage.getItem("selectedTheater");
+    document.getElementById("order-summary-city").textContent = localStorage.getItem("city-name");
+    document.getElementById("order-summary-ticketType").textContent = localStorage.getItem("selectedTicketOption");
+
+    let seatType = localStorage.getItem("seatType");
+    let seats = JSON.parse(localStorage.getItem("selectedSeatNames"));
+    document.getElementById("order-summary-seatType").textContent = `${seatType} - ${seats}`;
+
+    let day = localStorage.getItem("selectedDay");
+    let date = localStorage.getItem("selectedDate");
+    let month = localStorage.getItem("selectedMonth");
+    document.getElementById("order-summary-day").textContent = day;
+    document.getElementById("order-summary-date").textContent = `${date} ${month}`;
+    document.getElementById("order-summary-time").textContent = localStorage.getItem("selectedTime");
+
+    let summarySubtotal = parseFloat(localStorage.getItem("seatSubtotal")).toFixed(2);
+    document.getElementById("order-summary-subtotal").textContent = `Rs. ${summarySubtotal}`;
+    let summaryTotal = parseFloat(localStorage.getItem("seatTotal")).toFixed(2);
+    document.querySelector(".order-summary-total").textContent = `Rs. ${summaryTotal}`;
+
+    document.getElementById("order-summary-ticketCount").textContent = localStorage.getItem("ticketCount");
 });
