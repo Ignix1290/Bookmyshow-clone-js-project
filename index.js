@@ -384,29 +384,73 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  let seatRow = document.querySelectorAll(".seat-row");
-  seatRow.forEach(row =>{
+//   let seatRow = document.querySelectorAll(".seat-row");
+//   seatRow.forEach(row =>{
+//     let rowLetter = row.dataset.row;
+
+//     for(let i = 1; i <= 16; i++){
+//         const seat = document.createElement("div");
+//         seat.classList.add("seat");
+//         seat.textContent = `${rowLetter}${i}`;
+
+//         if(i == 9){
+//             let gap = document.createElement("div");
+//             gap.classList.add("seat-gap");
+//             row.appendChild(gap);
+//         }
+//         row.appendChild(seat);
+
+//         //seat click functionality
+//         seat.addEventListener("click", ()=>{
+//             seat.classList.toggle("selected");
+//             updatePaymentVisibility();
+//         });
+//     }
+//   });
+
+// Step 2: Get booked seats from localStorage (from step 1)
+    let movieName = localStorage.getItem("selectedMovie");
+    let theaterName = localStorage.getItem("selectedTheater");
+    let timing = localStorage.getItem("selectedTime");
+    let bookingDate = localStorage.getItem("selectedDate");
+    let bookingDay = localStorage.getItem("selectedDay");
+    let bookingKey = `bookedSeats_${movieName}_${theaterName}_${timing}_${bookingDate}_${bookingDay}`;
+    let bookedSeats = JSON.parse(localStorage.getItem(bookingKey)) || [];
+
+    let seatRow = document.querySelectorAll(".seat-row");
+
+    seatRow.forEach(row => {
     let rowLetter = row.dataset.row;
 
-    for(let i = 1; i <= 16; i++){
+    for (let i = 1; i <= 16; i++) {
         const seat = document.createElement("div");
+        const seatName = `${rowLetter}${i}`;
         seat.classList.add("seat");
-        seat.textContent = `${rowLetter}${i}`;
+        seat.textContent = seatName;
 
-        if(i == 9){
-            let gap = document.createElement("div");
-            gap.classList.add("seat-gap");
-            row.appendChild(gap);
+        // Add gap in the middle
+        if (i == 9) {
+        let gap = document.createElement("div");
+        gap.classList.add("seat-gap");
+        row.appendChild(gap);
         }
-        row.appendChild(seat);
 
-        //seat click functionality
-        seat.addEventListener("click", ()=>{
-            seat.classList.toggle("selected");
-            updatePaymentVisibility();
-        });
+        // Check if this seat is booked
+        if (bookedSeats.includes(seatName)) {
+            seat.classList.add("booked");
+            seat.style.pointerEvents = "none"; // disable clicking
+        } else {
+        // Only allow click if seat is not booked
+            seat.addEventListener("click", () => {
+                seat.classList.toggle("selected");
+                updatePaymentVisibility();
+            });
+        }
+
+        row.appendChild(seat);
     }
-  });
+    });
+
 
   let paymentContainer = document.getElementById("seat-payment-container");
   let seatPaymentButton = document.getElementById("seat-payment");
@@ -471,6 +515,14 @@ window.addEventListener("DOMContentLoaded", () => {
   localStorage.setItem("seatType", seatType);
   localStorage.setItem("seatSubtotal", seatSubtotal);
   localStorage.setItem("seatTotal", seatTotal);
+
+  //check for previous booked seats or return an empty array
+  let previousBooked = JSON.parse(localStorage.getItem("bookedSeats")) || []; 
+  //combine the previous booked seats to current selected seat names
+  let newBooked = [...previousBooked, ...selectedSeatNames];
+  //create a new item in localstorage to save the combined seats
+  localStorage.setItem(bookingKey, JSON.stringify(newBooked));
+
   window.location.href = "booking-summary.html";
   });
 });
@@ -590,4 +642,145 @@ window.addEventListener("DOMContentLoaded", ()=>{
     document.querySelector(".order-summary-total").textContent = `Rs. ${summaryTotal}`;
 
     document.getElementById("order-summary-ticketCount").textContent = localStorage.getItem("ticketCount");
+
+    //payment logic
+    const emailInput = document.getElementById("email-input");
+    const phoneInput = document.getElementById("phone-input");
+    const continueButton = document.getElementById("continue-button");
+
+    let isContactValid = false;
+
+    continueButton.addEventListener("click", () => {
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+
+        // Basic validation without regex
+        const isEmailValid = email.includes("@");
+        const isPhoneValid = phone.length === 10 && !isNaN(phone);
+
+        if (!isEmailValid) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (!isPhoneValid) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
+
+        isContactValid = true;
+
+        // Save in localStorage if needed
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userPhone", phone);
+
+        // Disable input fields and update button
+        emailInput.disabled = true;
+        phoneInput.disabled = true;
+        continueButton.textContent = "Details Saved";
+        continueButton.disabled = true;
+
+        console.log("Email and phone saved:", email, phone);
+    });
+
+    // PAYMENT BUTTON HANDLERS
+    document.querySelector("#upi-details-container .upi-payment-button").addEventListener("click", () => {
+        if (!isContactValid) {
+            alert("Please enter and save your email and phone number first.");
+            return;
+        }
+
+        const selectedUpi = document.querySelector(".upi input[type=radio]:checked");
+        const upiId = document.querySelector("#upi-details input[type=number]").value.trim();
+        const bank = document.querySelector("#upi-details input[type=text]").value.trim();
+
+        if (!selectedUpi) {
+            alert("Please select a UPI method.");
+            return;
+        }
+
+        if (!upiId || !bank) {
+            alert("Please enter your UPI ID and Bank name.");
+            return;
+        }
+
+        // Optional: Validate UPI ID format (e.g., name@bank), skipped for simplicity
+
+        alert("Payment Successful via UPI 🎉");
+        
+        // Redirect or perform further actions
+    });
+
+    document.querySelector("#card-details-container .upi-payment-button").addEventListener("click", () => {
+        if (!isContactValid) {
+            alert("Please enter and save your email and phone number first.");
+            return;
+        }
+
+        const cardInputs = document.querySelectorAll("#card-details input");
+        const cardNumber = cardInputs[0].value.trim();
+        const name = cardInputs[1].value.trim();
+        const expiryMM = cardInputs[2].value.trim();
+        const expiryYY = cardInputs[3].value.trim();
+        const cvv = cardInputs[4].value.trim();
+
+        if (cardNumber.length !== 16 || isNaN(cardNumber)) {
+            alert("Please enter a valid 16-digit card number.");
+            return;
+        }
+
+        if (!name) {
+            alert("Please enter the name on the card.");
+            return;
+        }
+
+        const mm = parseInt(expiryMM);
+        if (isNaN(mm) || mm < 1 || mm > 12 || !expiryYY) {
+            alert("Please enter a valid expiry date.");
+            return;
+        }
+
+        if (cvv.length !== 3 || isNaN(cvv)) {
+            alert("Please enter a valid 3-digit CVV.");
+            return;
+        }
+
+        alert("Payment Successful via Card 💳");
+        
+        // Redirect or perform further actions
+    });
+
+    document.querySelectorAll(".upi-payment-button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Hide all payment stuff
+            document.getElementById("payment-options-container").style.display = "none";
+            document.getElementById("contacts").style.display = "none";
+
+            // Show confirmation block
+            const confirmDiv = document.getElementById("booking-confirmation");
+            confirmDiv.style.display = "block";
+
+            // Fill details from localStorage
+            document.getElementById("confirm-movie").textContent = localStorage.getItem("selectedMovie") || "N/A";
+            document.getElementById("confirm-theater").textContent = localStorage.getItem("selectedTheater") || "N/A";
+            document.getElementById("confirm-city").textContent = localStorage.getItem("city-name") || "N/A";
+
+            const date = `${localStorage.getItem("selectedDate")} ${localStorage.getItem("selectedMonth")} (${localStorage.getItem("selectedDay")})`;
+            const time = localStorage.getItem("selectedTime");
+            document.getElementById("confirm-date-time").textContent = `${date} at ${time}`;
+
+            const seatNames = JSON.parse(localStorage.getItem("selectedSeatNames") || "[]");
+            const seats = `${localStorage.getItem("seatType") || ""} - ${seatNames.join(", ")}`;
+            document.getElementById("confirm-seats").textContent = seats;
+
+            document.getElementById("confirm-total").textContent = `Rs. ${parseFloat(localStorage.getItem("seatTotal") || 0).toFixed(2)}`;
+        });
+    });
+
+    document.getElementById("go-home-button").addEventListener("click", () => {
+        window.location.href = "home.html";
+    });
+
+
+
 });

@@ -20,9 +20,23 @@
                 <div id="contact-details-header">Share your Contact Details</div>
 
                 <div id="contacts">
-                    <input type="text" placeholder="Email Address">
-                    <input type="number" placeholder="Mobile Number">
-                    <button>Continue</button>
+                    <input
+                        type="email"
+                        id="email-input"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="Email Address"
+                    />
+                    
+                    <input
+                        type="tel"
+                        id="phone-input"
+                        name="phone"
+                        autocomplete="tel"
+                        placeholder="Mobile Number"
+                    />
+
+                    <button id="continue-button">Continue</button>
                 </div>
             </div>
 
@@ -133,6 +147,17 @@
                 <p>tickets</p>
             </div>
         </div>
+    </div>
+
+    <div id="booking-confirmation" style="display: none;">
+        <h2>🎉 Booking Confirmed!</h2>
+        <p><strong>Movie:</strong> <span id="confirm-movie"></span></p>
+        <p><strong>Theater:</strong> <span id="confirm-theater"></span></p>
+        <p><strong>City:</strong> <span id="confirm-city"></span></p>
+        <p><strong>Date & Time:</strong> <span id="confirm-date-time"></span></p>
+        <p><strong>Seats:</strong> <span id="confirm-seats"></span></p>
+        <p><strong>Total:</strong> <span id="confirm-total"></span></p>
+        <button id="go-home-button">Go to Home</button>
     </div>
 
     <script src="index.js"></script>
