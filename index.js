@@ -517,9 +517,9 @@ window.addEventListener("DOMContentLoaded", () => {
   localStorage.setItem("seatTotal", seatTotal);
 
   //check for previous booked seats or return an empty array
-  let previousBooked = JSON.parse(localStorage.getItem("bookedSeats")) || []; 
+  let previousBooked = JSON.parse(localStorage.getItem(bookingKey)) || []; 
   //combine the previous booked seats to current selected seat names
-  let newBooked = [...previousBooked, ...selectedSeatNames];
+  let newBooked = [...new Set([...previousBooked, ...selectedSeatNames])];
   //create a new item in localstorage to save the combined seats
   localStorage.setItem(bookingKey, JSON.stringify(newBooked));
 
