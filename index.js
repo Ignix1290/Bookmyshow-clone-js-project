@@ -781,6 +781,90 @@ window.addEventListener("DOMContentLoaded", ()=>{
         window.location.href = "home.html";
     });
 
+});
 
+
+//header login functionality
+window.addEventListener("DOMContentLoaded", ()=>{
+    const loginModal = document.getElementById("login-modal-container");
+    const signInBtn = document.getElementById("sign-in");
+    const closeBtn = document.querySelector(".login-close-button");
+
+    signInBtn.addEventListener("click", () => {
+    loginModal.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+    loginModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+    if (e.target === loginModal) {
+        loginModal.style.display = "none";
+    }
+    });
 
 });
+
+
+import { auth, provider } from './firebase.js';
+import {
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+// Elements
+const signInButton = document.getElementById("sign-in");
+const googleLoginBtn = document.getElementById("google-login-btn");
+const loginModal = document.getElementById("login-modal-container");
+const menuIcon = document.querySelector(".menu-icon");
+const menuDropdown = document.getElementById("menu-dropdown");
+const signOutButton = document.getElementById("sign-out");
+
+// Show/hide dropdown
+menuIcon.addEventListener("click", () => {
+  menuDropdown.classList.toggle("hidden");
+});
+
+// Login
+googleLoginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      const firstName = user.displayName.split(" ")[0];
+      signInButton.textContent = `Hi ${firstName}`;
+      signInButton.disabled = true;
+      loginModal.style.display = "none";
+    })
+    .catch((error) => {
+      console.error("Login failed:", error);
+    });
+});
+
+// Sign out
+signOutButton.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      signInButton.textContent = "Sign in";
+      signInButton.disabled = false;
+      menuDropdown.classList.add("hidden");
+    })
+    .catch((error) => {
+      console.error("Sign out failed:", error);
+    });
+});
+
+// Persist user session (optional)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const firstName = user.displayName.split(" ")[0];
+    signInButton.textContent = `Hi ${firstName}`;
+    signInButton.disabled = true;
+  } else {
+    signInButton.textContent = "Sign in";
+    signInButton.disabled = false;
+  }
+});
+
+

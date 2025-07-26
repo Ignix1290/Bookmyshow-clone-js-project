@@ -53,6 +53,22 @@
         </div>
     </div>
 
+    <!-- Login Modal -->
+    <div id="login-modal-container" class="login-modal">
+        <div class="login-modal-content">
+            <span class="login-close-button">&times;</span>
+            <h2>Sign in to BookMyShow</h2>
+            <button id="google-login-btn">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Icon">
+            Continue with Google
+            </button>
+        </div>
+    </div>
+
+    <div id="menu-dropdown" class="menu-dropdown hidden">
+        <button id="sign-out">Sign Out</button>
+    </div>
+
     <div id="feed-container">
         <h2>Recommended Movies</h2>
         <div id="movie-cards">
@@ -63,6 +79,6 @@
     <footer class="site-footer">
         <p>&copy; 2025 BookMyShow Clone. All rights reserved.</p>
     </footer>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
