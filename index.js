@@ -127,9 +127,9 @@ async function listOfMovies(movieName = "", isModal = false) {
     try {
         let movieApi = "";
         if (movieName.trim() === "") {
-            movieApi = `http://www.omdbapi.com/?s=batman&apikey=${movieApiKey}`;
+            movieApi = `https://www.omdbapi.com/?s=batman&apikey=${movieApiKey}`;
         } else {
-            movieApi = `http://www.omdbapi.com/?s=${encodeURIComponent(movieName)}&apikey=${movieApiKey}`;
+            movieApi = `https://www.omdbapi.com/?s=${encodeURIComponent(movieName)}&apikey=${movieApiKey}`;
         }
 
         let response = await fetch(movieApi);
@@ -153,7 +153,7 @@ async function listOfMovies(movieName = "", isModal = false) {
                     });
                     targetContainer.appendChild(titleItem);
                 } else {
-                    const detailsRes = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${movieApiKey}`);
+                    const detailsRes = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${movieApiKey}`);
                     const details = await detailsRes.json();
 
                     const card = document.createElement("div");
@@ -193,7 +193,7 @@ async function getMovieDetails(){
     }
 
     try{
-        let response = await fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=${movieApiKey}`);
+        let response = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=${movieApiKey}`);
         if(!response){
             throw new Error("Response is not ok");
         }
@@ -245,7 +245,7 @@ async function movieBooking(){
     let movieId = urlParam.get("id");
 
     try{
-        let response = await fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=${movieApiKey}`);
+        let response = await fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=${movieApiKey}`);
         //console.log(response);
         if(!response){
             throw new Error("Response is not ok");
